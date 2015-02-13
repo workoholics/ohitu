@@ -6,9 +6,9 @@
 
 Mobile application developed with AngularJS and IonicFramework to achieve a healthy lifestyle making challenges. The app is available in [Google Play](https://play.google.com/store/apps/details?id=io.cordova.ohitu "Ohitu in Google Play") and App Store.
 
-Ohitu encourages you to achieve your challenge. Only 21 days are needed to become a superhuman.
+[Ohitu](http://www.ohitu.es/ "Ohitu") encourages you to achieve your challenge. Only 21 days are needed to become a superhuman.
 
-###How to use Ohitu
+###How to use [Ohitu](http://www.ohitu.es/ "Ohitu")
 
 1. Choose your challenge. Create your custom challenge or choose it from over 20 default challenges: go up stairs, no smoking, drink more water, read, learn a new language…
 2. Choose the frequency and duration of the challenge. After you complete the challenge of the day, mark it and will complete your habit successfully.
@@ -19,11 +19,11 @@ Ohitu encourages you to achieve your challenge. Only 21 days are needed to becom
 
 Ohitura berriak lortzeko AngularJS eta Ionic Framework erabiliz sortutako aplikazioa. App hau Android eta iOS sistemekin bateragarria da
 
-Ohitu App animatu egiten zaitu baikortasunarekin, lor nahi duzun erronka bete dezazun. 
+[Ohitu](http://www.ohitu.es/ "Ohitu") App animatu egiten zaitu baikortasunarekin, lor nahi duzun erronka bete dezazun. 
 Bakarrik 21 egun behar dira Superhuman bat bihurtzeko.
 
 
-###Horrela erabiltzen da Ohitu
+###Horrela erabiltzen da [Ohitu](http://www.ohitu.es/ "Ohitu")
 
 1. Aukeratu zure erronka
 Sortu erronka pertsonala edo aukera ezazu aplikazioa eskaintzen dizun 20 ohitua baino gehiagoren artean, adibidez: eskailerak igo, ez erre, ur geniago edan, irakurri, hizkuntza berri ikasi…
