@@ -2,6 +2,8 @@
 
 ###[www.ohitu.es](http://www.ohitu.es/ "Ohitu")
 
+##Change your habits and become a superhuman
+
  Mobile application developed with AngularJS and IonicFramework to achieve a healthy lifestyle making challenges. 
 
 ##Ohiturak aldatu eta Superhuman bilakatu
