@@ -25,11 +25,11 @@ Bakarrik 21 egun behar dira Superhuman bat bihurtzeko.
 
 ###Horrela erabiltzen da Ohitu
 
-1.Aukeratu zure erronka
+1. Aukeratu zure erronka
 Sortu erronka pertsonala edo aukera ezazu aplikazioa eskaintzen dizun 20 ohitua baino gehiagoren artean, adibidez: eskailerak igo, ez erre, ur geniago edan, irakurri, hizkuntza berri ikasi…
 
-2.Aukera ezazu erronkaren maiztasuna eta luzeera
+2. Aukera ezazu erronkaren maiztasuna eta luzeera
 Eta eguneko ohitura betetzean, marka ezazu aplikazioan. Konturatu barik azkeneko helburua lortuko duzu.
 
-3.Zin egin nahi duzun pertsonari
+3. Zin egin nahi duzun pertsonari
 Zure kirikiñoari, bikoteari, amari edo zure buruari. Zin egin eta bete!
