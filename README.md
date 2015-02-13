@@ -1,4 +1,7 @@
-# Ohitu [www.ohitu.es](http://www.ohitu.es/ "Ohitu")
+# Ohitu 
+
+###[www.ohitu.es](http://www.ohitu.es/ "Ohitu")
+
  Mobile application developed with AngularJS and IonicFramework to achieve a healthy lifestyle making challenges. 
 
 ##Ohiturak aldatu eta Superhuman bilakatu
