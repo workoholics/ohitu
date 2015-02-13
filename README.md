@@ -17,7 +17,7 @@ Mobile application developed with AngularJS and IonicFramework to achieve a heal
 
 ##Ohiturak aldatu eta Superhuman bilakatu
 
-Ohitura berriak lortzeko AngularJS eta Ionic Framework erabiliz sortutako aplikazioa. App euskaraz dago eskuragai iOS eta [Androiderako](https://play.google.com/store/apps/details?id=io.cordova.ohitu "Ohitu in Google Play").
+Ohitura berriak lortzeko AngularJS eta Ionic Framework erabiliz sortutako aplikazioa. App euskaraz dago eskuragai App Storen eta [Google Play-n](https://play.google.com/store/apps/details?id=io.cordova.ohitu "Ohitu in Google Play").
 
 [Ohitu](http://www.ohitu.es/ "Ohitu") App animatu egiten zaitu baikortasunarekin, lor nahi duzun erronka bete dezazun. 
 Bakarrik 21 egun behar dira Superhuman bat bihurtzeko.
