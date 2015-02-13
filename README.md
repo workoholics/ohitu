@@ -36,6 +36,6 @@ Zure kirikiñoari, bikoteari, amari edo zure buruari. Zin egin eta bete!
 
 ## Mockups
 
-[![Ohitu app mockup](https://raw.githubusercontent.com/workoholics/ohitu/master/screenshots/ohitu-mockup01.png "Ohitu Mockup 1")](http://www.ohitu.es "Ohitu")
+[![Ohitu app mockup](https://raw.githubusercontent.com/workoholics/ohitu/master/screenshots/ohitu-mockup01.png "Ohitu Mockup 1")](http://www.ohitu.es "Ohitu"){:target="_blank"}
 
 
