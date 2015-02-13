@@ -33,3 +33,9 @@ Eta eguneko ohitura betetzean, marka ezazu aplikazioan. Konturatu barik azkeneko
 
 3. Zin egin nahi duzun pertsonari
 Zure kirikiñoari, bikoteari, amari edo zure buruari. Zin egin eta bete!
+
+## Mockups
+
+![Ohitu app mockup](https://raw.githubusercontent.com/workoholics/ohitu/master/screenshots/ohitu-mockup01.png "Ohitu Mockup 1")
+
+
