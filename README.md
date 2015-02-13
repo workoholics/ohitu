@@ -4,7 +4,7 @@
 
 ##Change your habits and become a superhuman
 
- Mobile application developed with AngularJS and IonicFramework to achieve a healthy lifestyle making challenges. 
+Mobile application developed with AngularJS and IonicFramework to achieve a healthy lifestyle making challenges. The app is available in [Google Play](https://play.google.com/store/apps/details?id=io.cordova.ohitu) and App Store.
 
 ##Ohiturak aldatu eta Superhuman bilakatu
 
