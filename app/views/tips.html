@@ -1,0 +1,15 @@
+<div ng-controller="TipsCtrl" class="tips">
+	<ion-content class="bg-lighter">
+		<div class="has-header">
+			<div ng-repeat="tip in tips" class="tip">
+				<div class="tip-body h-space">
+					<img class="tip-icon" src="images/tip_icon.png" alt="Icono Tip"/>
+					<h2 class="light">{{tip.category}}</h2>
+
+					<p>{{tip.description}}</p>
+				</div>
+				<span class="tri-separator-down m-bottom-1"></span>
+			</div>
+		</div>
+	</ion-content>
+</div>

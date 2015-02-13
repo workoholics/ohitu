@@ -1,0 +1,1630 @@
+@import "workostrap";
+@import "ohituicons";
+
+/* Variables*/
+
+$bg-ohitu-dark: #2d333b;
+$bg-ohitu-std: #3c444e;
+$bg-ohitu-light : #4c5764;
+
+$bg-turquesa: #4ecdc4;
+$bg-rosa: #ff6b6b;
+$bg-verde: #7ece47;
+
+$bg-button-ohitu-light: #4c5764;
+$bg-button-ohitu-dark: #383f49;
+$bg-button-ohitu-medium: rgba(56, 63, 73, 0.5);
+
+$power-green: #9cfd5a;
+$pink: #ff6b6b;
+
+$mq-mobile-landscape: 400px;
+
+
+/* Font load */
+
+@font-face {
+    font-family: Raleway;
+    src: url(../fonts/Raleway-Regular.ttf);
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: Raleway;
+    src: url(../fonts/Raleway-Thin.ttf);
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: Raleway;
+    src: url(../fonts/Raleway-ExtraLight.ttf);
+    font-weight: 200;
+}
+@font-face {
+    font-family: Raleway;
+    src: url(../fonts/Raleway-Light.ttf);
+    font-weight: 300;
+}
+@font-face {
+    font-family: Raleway;
+    src: url(../fonts/Raleway-Medium.ttf);
+    font-weight: 500;
+}
+@font-face {
+    font-family: Raleway;
+    src: url(../fonts/Raleway-SemiBold.ttf);
+    font-weight: 600;
+}
+@font-face {
+    font-family: Raleway;
+    src: url(../fonts/Raleway-Bold.ttf);
+    font-weight: 700;
+}
+@font-face {
+    font-family: Raleway;
+    src: url(../fonts/Raleway-ExtraBold.ttf);
+    font-weight: 800;
+}
+
+
+/* End font load */
+
+
+/* ====================== Generales ====================== */
+
+body
+{
+	font-family: 'Raleway', sans-serif;
+	font-size: 18px;
+	color: $light;
+	font-weight: 500;
+	line-height: 1.4em;
+}
+
+h1,h2,h3,h4,h5,h6,p,span
+{
+	font-family: 'Raleway', sans-serif;
+	line-height: 1.4em;
+}
+
+p
+{
+	font-size: 0.9em;
+	font-weight: 500;
+
+	&.success
+	{
+		color : #9cfd5a;
+	}
+}
+
+a
+{
+	text-decoration: none;
+}
+
+ul
+{
+	li
+	{
+		font-size: 0.9em;
+	}
+}
+
+label
+{
+	font-weight: 500;
+	font-size: 1em;
+}
+
+small
+{
+	font-size: 75%;
+}
+
+.bg-dark
+{
+	background-color: $bg-ohitu-dark;
+}
+
+.bg-std
+{
+	background-color: $bg-ohitu-std;
+}
+
+
+.bg-light
+{
+	background-color: $bg-ohitu-light;
+}
+.bg-lighter
+{
+	background-color: #556270;
+}
+
+.bg-turquesa
+{
+	background-color: $bg-turquesa;
+}
+
+.bg-rosa
+{
+	background-color: $bg-rosa;
+}
+
+.bg-verde
+{
+	background-color: $bg-verde;
+}
+
+.bg-light-grey
+{
+	background-color: #f6f6f6;
+}
+
+.bg-figuras
+{
+	background-image: url(../images/bg_figuras.png);
+	background-attachment: fixed;
+	background-position: center 50px;
+	background-repeat: no-repeat;
+	background-color:#556270;
+}
+
+.bg-grey-light
+{
+	background-color: #F6F6F6;
+	color:#556270;
+}
+
+.bg-rino
+{
+	background-color:#777
+}
+
+.power-green
+{
+	color: $power-green;
+}
+
+
+
+
+
+a.forgot
+{
+	font-weight: 200;
+	border-bottom: 1px solid $light;
+	font-size: 0.87em;
+}
+
+h2
+{
+	font-size: 1.3em;
+	margin:0;
+}
+
+h3
+{
+	font-size: 1em;
+}
+
+
+button 
+{
+	.icon
+	{
+		&.icon-right
+		{
+			padding-left: $gutter;
+		}
+
+		&.icon-left
+		{
+			padding-right: $gutter;
+		}
+	}
+}
+
+.button
+{
+	font-family: 'Raleway', sans-serif;
+
+	&.button-balanced
+	{
+		background-color: #6cb03d;
+	}
+
+	&.full
+	{
+		border-radius: 0;
+	}
+}
+
+
+
+img
+{
+	width: 100%;
+}
+
+.scroll-content
+{
+	width:100%;
+}
+
+
+
+.has-header
+{
+	position: relative;
+	margin-top: $gutter * 5 !important;
+	top: auto;
+}
+
+.card
+{
+	margin-top: $gutter;
+	margin-bottom: $gutter;
+}
+
+.list.no-click .item.active:not(.item-divider):not(.item-input):not(.item-input-inset)
+{
+	background-color: transparent;
+}
+
+.button.button-small
+{
+	min-height: 30px;
+	line-height: 30px;
+}
+
+.label.label-red
+{
+	color: red;
+	font-style: italic;
+	font-size: 80%;
+}
+
+textarea
+{
+	resize: none;
+	border: 1px solid #ddd;
+}
+
+select.select-block
+{
+	width: 100%;
+}
+
+
+select
+{
+	&:after
+	{
+		content: "wrefgwfwef"; 
+	}
+}
+
+input[type="text"],
+input[type="password"],
+textarea
+{
+	font-family: 'Raleway', sans-serif; 
+	color: #2d333b;
+	font-weight: 300;
+	font-size: 1.3em;
+	@include placeholder()
+	{
+		padding-top: 5px;
+		color: #838383;
+		font-weight: 300;
+	}
+}
+
+small.tit
+{
+	text-transform: uppercase;
+	display: block;
+	color: transparentize($light,0.4); 
+}
+
+/* ====================== End Generales ======================*/
+
+/*======================= Components ========================= */
+
+
+/* Ionic List*/
+.list
+{
+	margin: $gutter 0;
+
+	&.no-padding
+	{
+		.item
+		{
+			padding: 0;
+		}
+	}
+
+	.item
+	{
+		padding-left: $gutter;
+		padding-right: $gutter;
+		span.icon
+		{
+			right: $gutter;
+		}
+	}
+
+
+	 
+}
+
+/* Ionic List inset*/
+
+.list-inset
+{
+  overflow: visible;
+  .validation-message
+  {
+    position: absolute;
+    top: -30px;
+    color: red;
+  }
+
+  .item
+  {
+  	border:
+  	{
+  		top:none;
+  		left:none;
+  		right: none;
+  		bottom: 2px solid #2d333b;
+  	}
+  }
+}
+
+/* Slider Pager*/
+
+.slider-pager
+{
+	position: fixed;
+	bottom: 90px;
+}
+
+
+/* Bar dark*/
+
+.bar
+{
+	height: $gutter * 5;
+	border:none;
+	&.bar-dark 
+	{
+		background-size:0;
+		background-color: $bg-ohitu-light;
+		.button
+		{
+			background-color: transparent;
+			border:none;
+			&:before
+			{
+				font-size: 2.4em;
+			}
+			
+		}
+
+		.title
+		{
+			line-height: $gutter * 5;
+			font-size: 1em;
+		}
+	}
+}
+
+
+
+
+/*======================= End Components ==================== */
+
+
+/* ========= Helper classes ===========*/
+
+.button
+{
+	font-size: 1.1em;
+	font-weight: 500;
+	border:none;
+	line-height: 45px;
+}
+
+
+.button.button-ohitu-light
+{
+	background-color : $bg-button-ohitu-light;
+	color: $light;
+}
+
+.button.button-ohitu-medium
+{
+	background-color: $bg-button-ohitu-medium;
+	color: $light;
+}
+
+
+.button.button-ohitu-dark
+{
+	background-color : $bg-button-ohitu-dark;
+	color: $light;
+}
+
+.button.button-coral-light
+{
+	color: $light;
+	background-color: #FF6B6B;
+}
+
+.button.button-coral-dark
+{
+	color: $light;
+	background-color: #C44D58;
+}
+
+.button.button-green
+{
+	background-color: #6CB03D;
+	color: $light;
+}
+
+.button.destacado
+{
+	font-weight: 400;
+}
+
+.back-button
+{
+	position: absolute;
+	top: $gutter;
+	left: $gutter;
+	border: none;
+	border-radius: 0;
+	color: $bg-ohitu-dark;
+	background-color: $bg-button-ohitu-light;
+
+	&.inverse
+	{
+		color: $bg-button-ohitu-light;
+		background-color:  $bg-ohitu-dark;
+	}
+}
+
+
+
+.alert-error
+{
+	color: #e42b4e;
+	margin:0;
+	span
+	{
+		font-size: 1.3em;
+		padding-right: $gutter;
+	}
+}
+
+
+.tri-separator
+{
+	display: block;
+	height: 0;
+	border-top: 10px solid transparent;
+	-webkit-border-image: url(../images/tri_separator.png) 1000 0 round; /* Safari 3.1-5 */
+    -o-border-image: url(../images/tri_separator.png) 1000 0 round; /* Opera 11-12.1 */
+    border-image: url(../images/tri_separator.png) 1000 0 round;
+}
+
+.tri-separator-down
+{
+	display: block;
+	height: 0;
+	border-bottom: 10px solid transparent;
+	-webkit-border-image: url(../images/tri_separator_down.png) 1000 0 round; /* Safari 3.1-5 */
+    -o-border-image: url(../images/tri_separator_down.png) 1000 0 round; /* Opera 11-12.1 */
+    border-image: url(../images/tri_separator_down.png) 1000 0 round;
+    margin-top: -1px;
+}
+
+
+.dark
+{
+	color: #666;	
+}
+
+
+
+/* ========= End helper classes =======*/
+
+
+
+
+
+/* ====================== Main menu ======================*/
+
+
+.main-menu
+{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	left: 100%;
+	z-index:11;
+	@include prefixer(transition,.3s all);
+
+	&.opened
+	{
+		@include prefixer(transform, translateX(-100%));
+	}
+
+	.main-menu-close
+	{
+		background-color: transparent;
+		border:none;
+		padding: 0 $gutter;
+		top: 5px;
+		.icon
+		{
+			color: $light;
+			font-size: 22px;
+		}
+	}
+
+	.main-menu-content
+	{
+		display: block;
+		padding: 
+		{
+			top:$gutter * 3;
+			bottom: $gutter *3;
+		}
+
+		li
+		{
+			padding: $gutter $gutter * 3;
+			font-weight: 300;
+			font-size: 1.3em;
+
+			&.active,
+			&:hover,
+			&:active
+			{
+				background-color: $bg-ohitu-dark;
+			}
+		}
+	}
+
+
+}
+
+
+
+
+/* ====================== End Main menu ======================*/
+
+
+
+/* ====================== Wellcome block ==========================*/
+
+.wellcome-block
+{
+	background-color: #45b7af;
+	border-bottom: 2px solid $light;
+	p
+	{
+		margin-bottom: 0;
+		font-size: 0.8em;
+	}
+
+	&:after
+	{
+		content:'';
+		width: 20px;
+		position: absolute;
+		border-top:11px solid #45b7af;
+		border-left: 10px solid transparent;
+		border-right: 10px solid transparent;
+		bottom:-10px;
+		left: 50%;
+		margin-left: -10px;
+	}
+}
+
+/* ==================== End Wellcome block ========================*/
+
+/* ==================== Last Challenge ======================*/
+
+.last-challenge,
+.inner-challenge,
+.inner-end-challenge
+{
+
+	p
+	{
+		font-size: 0.9em;
+		font-weight: 500;
+	}
+
+	.confirm-block
+	{
+		button{
+			margin: 5px;
+		}
+	}
+
+	.tip
+	{
+		//background-color: #3C444E;
+		.tri-separator-down
+		{
+			margin-top: -1px;
+		}
+	}
+}
+
+.tips
+{
+	.tip
+	{
+		background-color: #556270;
+	}
+}
+
+
+
+/* ================= End Last Challenge =====================*/
+
+/* ====== Last challenge progress ======*/
+
+.last-challenge-progress,
+.inner-challenge-progress,
+.inner-end-challenge-progress
+{
+	background-color: $bg-ohitu-light;
+	p
+	{
+		font-weight: 500;
+		font-size: 0.8em;
+	}
+
+	small
+	{
+		text-transform: none;
+		padding-top: 5px;
+	}
+
+	.button
+	{
+		margin-top: $gutter *2;
+	}
+}
+
+/* ====== End Last challenge progress ======*/
+
+/* ====== Last Challenge more ====== */
+
+.button-more
+{
+	background-color: $bg-ohitu-dark;
+	
+	color: $pink;
+	font-weight: 500;
+	border:none;
+	border-radius:0;
+	@include prefixer(transition,.2s all);
+
+	span
+	{
+		font-size: 2.2em;
+		@include prefixer(transition,.2s all);
+	}
+
+	&.activated
+	{
+		background-color: lighten($bg-ohitu-dark,5%);
+	}
+
+	&.button-block
+	{
+		margin:0;
+	}
+
+	&:hover
+	{
+		color: inherit;
+	}
+	
+}
+
+/* ====== End Last Challenge more ====== */
+
+/* ====== Other challenges and Finished challenges ======*/
+
+.other-challenges
+{
+	border-top: 2px solid $light;
+	.list
+	{
+		.item
+		{
+			background-color: #3a424b;
+			border: 1px solid #4c5764;
+			
+			.ohitu-checkbox
+			{
+				right: $gutter;
+				top: 50%;
+				@include prefixer(transform,translateY(-50%));
+				position: absolute;
+				&.activated
+				{
+					@include prefixer(transform,translateY(-50%) scale(1.2));
+				}
+			}
+		}
+	}
+
+	p
+	{
+		font-size: 0.9em;
+		font-weight: 500;
+	}
+}
+
+
+.finished-challenges
+{
+	border-top: 2px solid $light;
+	background-color: #888888;
+	.list
+	{
+		.item
+		{
+			//border:1px solid #626262;
+			border:none;
+			background-color: #777;
+
+			.button-reset
+			{
+				border:none;
+				float: right;
+				background-color: #626262;
+				white-space: normal;
+				font-size: 0.8em;
+				color: $power-green;
+				width: 80px !important;
+				line-height: 1.2em;
+				font-weight: 500;
+				position: absolute;
+				right:0;
+			}
+		}
+	}
+	p
+	{
+		font-size: 0.9em;
+		font-weight: 500;
+	}
+}
+
+.other-challenges,
+.finished-challenges
+{
+	.list
+	{
+		margin-top: 0;
+		.item
+		{
+			position:relative;
+			p
+			{
+				color: $light;
+				display: inline-block;
+				font-weight: 500;
+				padding-left: $gutter * 2;
+				max-width: 200px;
+				white-space: normal;
+				top: 50%;
+				@include translateY(-50%);
+				position: relative;
+			}
+		}
+	}
+}
+
+
+/* ====== --End-- Finished challenges ====== */
+
+/* ====== New Challenge List =============== */
+
+.new-challenge,
+.profile
+{
+	.list
+	{
+		.item
+		{
+			min-height: 50px;
+			padding-top: 18px;
+			padding-bottom: 18px;
+			h2,p
+			{
+				font-size: 1.05em;
+			}
+
+			p
+			{
+				margin:0;
+			}
+
+			.ohitu-checkbox
+			{
+				border: 1px solid #44b5ae;
+				width: 26px;
+				height: 26px;
+				position: absolute;
+				right: 10px;
+				@include valign();
+				.icon
+				{
+					color: #1a7d97;
+					font-size: 1.5em;
+					left: 4px;
+					top: -3px;
+				}
+
+				&:after
+				{
+					visibility: hidden;
+				}
+			}
+
+			&.item-input
+			{
+				padding:
+				{
+					top:0;
+					bottom:0;
+				}
+				input
+				{
+					font-size: 1.05em;
+				}
+			}
+			
+		}
+
+		.item-divider
+		{
+			border:none;
+			background-color: #556270;
+			h2
+			{
+				color: $light;
+			}	
+		}
+
+		.category
+		{
+			background-color: #45b7af;
+			border:none;
+			p
+			{
+				color: $light;
+			}
+			
+		}
+	}
+
+	button
+	{
+		font-size: 1.05em;
+		font-weight: 400;
+	}
+}
+
+.new-challenge
+{
+	.list
+	{
+		.item:not(.item-divider)
+		{
+			padding-right: 50px;
+			p
+			{
+				overflow: visible;
+				text-overflow: initial;
+				white-space: normal;
+			}
+		}
+	}
+}
+
+/* ====== -- end -- New Challenge List ======*/
+
+
+
+/* ==================== Logo Frame ========================*/
+
+.logo-frame
+{
+	margin: 0 auto;
+	img
+	{
+		width: 100%	
+	}
+
+	&.big
+	{
+		width: 220px;
+	}
+
+	&.small
+	{
+		width: 130px;
+	}
+
+}
+
+/* ================== End Logo Frame ======================*/
+
+/* ======= Ohitu Checkbox ======= */
+
+.ohitu-checkbox
+{
+	border-radius: 50%;
+	border: 2px solid #2d333b;
+	display: inline-block;
+	position: relative;
+	width: 40px;
+	height: 40px;
+	@include prefixer(transition,.2s all);
+
+	&.activated
+	{
+		border-color: lighten(#2d333b,2%);
+	}
+
+	.ohituicon-unchecked
+	{
+		width: 20px;
+		left: 8px;
+		top: 9px;
+		opacity:0.2;
+		position: absolute;
+		z-index: 1;
+	}
+
+	&:after
+	{
+		@include prefixer(transition,.2s all);
+		width: 30px;
+		height: 30px;
+		position: absolute;
+		content:'';
+		background:#2d333b;
+		top: 3px;
+		left: 3px;
+		z-index: 0;
+		border-radius: 50%;
+	}
+
+
+
+	&.success
+	{
+		.icon
+		{
+			visibility: visible;
+		}
+
+		.ohituicon-unchecked
+		{
+			visibility: hidden;
+		}
+
+	}
+
+	.icon
+	{
+		position: absolute;
+		color: $power-green;
+		font-size:2em;
+		left: 8px;
+		top: 0;
+		visibility: hidden;
+		z-index: 1;
+	}
+	&.big
+	{
+		width: 120px;
+		height: 120px;
+		&.activated
+		{
+			@include prefixer(transform,scale(1.04));
+		}
+
+
+		&:after
+		{
+			width: 100px;
+			height: 100px;
+			top: 8px;
+			left: 8px;
+		}
+
+		.ohituicon-unchecked
+		{
+			width: 50px;
+			left: 50%;
+			margin-left: -25px;
+			top:35px;
+		}
+
+		.icon
+		{
+			left: 26px;
+			font-size:5.4em;
+		}
+	}
+}
+
+.ohitu-repeat-button
+{
+	border-radius: 50%;
+	border: 2px solid #777;
+	display: inline-block;
+	position: relative;
+	width: 120px;
+	height: 120px;
+	@include prefixer(transition,.2s all);
+
+	&:after
+	{
+		width: 100px;
+		height: 100px;
+		top: 8px;
+		left: 8px;
+		@include prefixer(transition,.2s all);
+		position: absolute;
+		content:'';
+		background:#777;
+		z-index: 0;
+		border-radius: 50%;
+	}
+
+	.icon
+	{
+		z-index: 1;
+		color: #626262;
+		position: absolute;
+		font-size: 4em;
+		left: 22px;
+		top: 10px;
+	}
+
+	&.activated
+	{
+		@include prefixer(transform,scale(1.04));
+	}
+}
+
+/* ======= End Ohitu Checkbox ======= */
+
+
+/* ======= Progbar ====== */
+
+.progbar
+{
+	border:none;
+	background-color: $light;
+	height: 8px;
+	span
+	{
+		background-color: $power-green;
+	}
+}
+
+/* ======= End Progbar ======*/
+
+/* ======= List Full ====== */
+
+.list
+{
+	&.full
+	{
+		.item
+		{
+			padding:0;
+			margin-bottom: 5px;
+			height: 70px;
+
+			.button
+			{
+				width: 70px;
+				height: 70px;
+			}
+		}
+	}
+}
+
+/* ======= End List Full =====*/
+
+
+/* ===================== Item reto =================================*/
+.retos
+{
+	.item.reto
+	{
+		h2
+		{
+			overflow: auto;
+			text-overflow: initial;
+			white-space: normal;
+		}
+
+		.row
+		{
+			.col:first-child
+			{
+				//border-right: 1px solid #ddd;
+			}
+		}
+
+		button.success
+		{
+			border-color: #209600;
+			color: #209600;
+			.icon
+			{
+				color: #209600; 
+			}
+		}
+
+		&:first-child
+		{
+			.row
+			{
+				padding-top: $gutter * 3;
+				padding-bottom: $gutter * 3;
+				background-color: rgba(32,150,0,0.1);
+				.col:first-child
+				{
+					border-right: none;
+				}
+			}
+		}
+
+		.finished
+		{
+			span
+			{
+				white-space: normal;
+			}
+		}	
+	}
+}
+
+
+
+/* ===================== End Item reto =============================*/
+
+/* ====== Home slider ====== */
+.firstUseSlider
+{
+	position: fixed; width:100%; height:100%; top:0; left:0;
+	.home-slider
+	{
+		position: relative;
+		height: 100%;
+		p
+		{
+			font-size: 1.2em;
+			line-height: 1.2em;
+			@include media_query_height($mq-mobile-landscape){
+				font-size: 0.9em;
+			}
+		}
+	}
+
+	.logo-frame
+	{
+		&.big,
+		&.small
+		{
+			width: 180px;
+		}
+		@include media_query_height($mq-mobile-landscape){
+			&.big,
+			&.small
+			{
+				width: 80px;
+				padding: 0 !important;
+			}
+		}
+	}
+
+	@include media_query_height($mq-mobile-landscape){
+		h2
+		{
+			font-size: 1em;
+		}
+	}
+}
+
+
+.button-start
+{
+	position: fixed;
+	bottom: 10px;
+	left: 0;
+}
+
+
+
+/* ====== --End-- Home Slider ======*/
+
+
+
+
+
+
+
+/* ===================== End Profile ===================================*/
+
+
+/* ======= About ========*/
+
+.about
+{
+
+
+	.icon-text-block
+	{
+		height: 60px;
+		position: relative;
+		.text
+		{
+			position: relative;
+			padding-left: $gutter * 7;
+			padding:
+			{
+				top: 0;
+				bottom: 0;
+			}
+		}
+		
+		.icon
+		{
+
+			&:before
+			{
+				text-shadow: 2px 2px 1px rgba(0,0,0,0.2);
+			}
+			
+		}
+
+		.rounded
+		{
+			width: $gutter * 6;
+			height: $gutter * 6;
+			border-radius: 100%;
+			background-color: #77d2d4;
+			border: 1px solid #556270;
+			line-height: $gutter * 6;
+			text-align: center;
+			margin-right: $gutter;
+			font-size: 2em;
+			display: inline-block;
+			position: absolute;	
+			
+		}
+
+		&.small
+		{
+			.rounded
+			{
+				width: $gutter * 4;
+				height: $gutter * 4;
+				line-height: $gutter * 4;
+			}
+		}
+	}
+	
+
+
+	p
+	{
+		.highlight
+		{
+			color:$power-green;
+		}
+	}
+
+	ul.icon-list
+	{
+
+		max-width: 400px;
+		position: relative;
+		left: 50%;
+		@include prefixer(transform,translateX(-50%));
+
+		padding:
+		{
+			left: $gutter * 3;
+			right: $gutter * 3;
+		}
+
+
+
+		li
+		{
+			margin-bottom: $gutter;
+			.text
+			{
+				line-height: 60px;				
+			}
+		}
+	}
+
+	.steps-block
+	{
+		h2
+		{
+			font-size: 1em;
+		}
+
+		p
+		{
+			color: rgba(255,255,255,1);
+			padding-left: 60px;
+		}
+
+		padding:
+		{
+			top: $gutter * 3;
+			bottom: $gutter * 3;
+		} 
+		background-color: #44b5ae;
+		margin-top: -1px;
+
+		.icon-text-block
+		{
+			height: 40px;
+			.text
+			{
+				display: block;
+				margin:0;
+				padding-left:60px;
+				@include valign();
+				text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+			}
+
+			.rounded
+			{
+				border: 2px solid rgb(255,255,255);
+				background-color: transparent;
+				font-size: 1.5em;
+				line-height: 1.2em;
+				box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
+			}
+		}
+
+		ul.styled-list
+		{
+			color: rgba(255,255,255,1);
+			padding-left: $gutter * 3;
+			list-style: initial;
+			margin-left: 60px;
+			li
+			{
+				list-style-type: disc;
+			}
+		}
+		
+	}
+
+	.logo-footer
+	{
+		max-width: 50px;
+	}
+
+	.tri_separator,
+	.tri_separator_down
+	{
+		margin-top: -1px;
+	}
+
+
+}
+
+
+
+/* ======= end About =====*/
+
+/*===== Profile ======*/
+
+.profile
+{
+	.icon-inner-page
+	{
+		color: #44B5AE;
+		position: absolute;
+		right: $gutter;
+		@include valign();
+		font-size: 1.5em;
+	}
+}
+
+.changeUserData
+{
+	input[type="text"],
+	input[type="password"]
+	{
+		min-height: 50px;
+		border-top: 1px solid #626C77;
+		border-bottom: 1px solid #626C77;
+		padding:
+		{
+			left: $gutter;
+			right: $gutter;
+		}
+	}
+}
+
+
+/*====== end Profile ==*/
+
+
+/*===== Confirm modal =====*/
+
+.confirm-modal
+{
+	width: 90%;
+	left: 5%;
+	height: auto;
+	min-height: 150px;
+	top: 20%;
+	@include media_query_min_width(400px){
+		width: 60%;
+		min-height: 150px !important;
+		top: 20%;
+		right: 20%;
+		bottom: auto;
+		left: auto;
+	}
+
+}
+
+/*===== End confirm modal ====*/
+
+/*===== Tips =====*/
+
+.tip
+{
+	position: relative;
+	.tip-body
+	{
+		background-color: #44B5AE;
+		height: auto;
+
+		.tip-icon
+		{
+			width: 30px;
+			height: auto;
+			position: absolute;
+			top: 10px;
+		}
+
+		h2
+		{
+			padding-top: 15px;
+			padding-bottom: $gutter;
+			font-size: 1em;
+			padding-left: 55px; 
+		}
+
+		p
+		{
+			margin-bottom:0;
+			padding-bottom: $gutter * 2;
+			padding-left: 55px;
+		}
+	}
+
+}
+
+/*===== End Tips =====*/
+
+
+/* ====== Forgot ==== */
+
+.forgot
+{
+	.item.item-input
+	{
+		border:none;
+	}
+}
+
+/* ===== End forgot ====*/
+
+
+.worko-logo
+{
+	width: 250px;
+}
+
+.dots
+{
+	position: relative;
+	display: block;
+	span
+	{
+		width: 6px;
+		height: 6px;
+		border-radius: 50%;
+		background-color: $light;
+		display: inline-block;
+		margin-left: $gutter / 2;
+		margin-right: $gutter / 2;
+	}
+}
+
+/* Loader*/
+
+
+.loader
+{
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1100;
+	background-color: $bg-ohitu-dark;
+
+	.img-loader
+	{
+		position: absolute;
+		width: 30px;
+		left: 50%;
+		margin-left: -15px;
+		top: 40%;
+		@include prefixer(animation-name,loader);
+		@include prefixer(animation-iteration-count,infinite);
+		@include prefixer(animation-duration,.7s);
+	}
+}
+
+/* Chrome, Safari, Opera */ 
+@-webkit-keyframes loader {
+	0% {@include prefixer(transform,scale(1))}
+	50% {@include prefixer(transform,scale(1.1))}
+    100% {@include prefixer(transform,scale(1))}
+} 
+
+/* Standard syntax */ 
+@keyframes loader {
+    0% {@include prefixer(transform,scale(1))}
+	50% {@include prefixer(transform,scale(1.1))}
+    100% {@include prefixer(transform,scale(1))}
+}
+
+
+
+
+
+
+
+
+
+

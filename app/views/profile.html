@@ -1,0 +1,93 @@
+<div class="profile" ng-controller="ProfileCtrl">
+	<ion-content ng-show="contentManager.subviewActive==='profileData'">
+		<div class="list has-header">
+			<div class="item item-divider">
+				<h2>{{fixedLiterals.profileSubtitle}}</h2>
+			</div>
+
+			<div class="item category">
+				<p>{{fixedLiterals.user}}</p>
+			</div>
+
+			<div class="item">
+				<p>{{userData.user}}</p>
+			</div>
+
+			<div class="item category">
+				<p>{{fixedLiterals.email}}</p>
+			</div>
+
+			<div class="item" ng-click="change(appMap.changeEmail)">
+				<p>{{userData.email}}</p><span class="icon-inner-page fa fa-chevron-right"></span>
+			</div>
+
+			<div class="item category">
+				<p>{{fixedLiterals.password}}</p>
+			</div>
+
+			<div class="item" ng-click="change(appMap.changePassword)">
+				<p>{{fixedLiterals.changePassword}}</p><span class="icon-inner-page fa fa-chevron-right"></span>
+			</div>
+		</div>
+
+		<div class="p-top-4">
+			<button ng-click="logout()" class="button button-block button-coral-light">{{fixedLiterals.logout}}</button>
+
+			<button ng-click="deleteUser.openConfirmation()" class="button button-block button-coral-dark">{{fixedLiterals.deleteUser}}</button>
+			<!-- <div class="text-center p-top-2">
+				<p class="dark">¿Estas seguro?</p>
+				<button class="button button-coral-dark">Si</button>
+				<button class="button button-coral-dark">No</button>
+			</div> -->
+		</div>
+		<script id="my-modal.html" type="text/ng-template">
+		  <ion-modal-view class="confirm-modal light">
+		    <ion-content class="bg-light">
+		    	<div class="h-space p-top-2">
+		    		<p class="text-center">{{fixedLiterals.confirmDeleteUser}}</p>
+		    	</div>
+		    	<div class="h-space actions text-center p-bottom-2 p-top-2">
+		      		<button ng-click="deleteUser.do()" class="button button-ohitu-dark">{{fixedLiterals.yes}}</button>
+		      		<button ng-click="deleteUser.closeConfirmation()" class="button button-ohitu-dark">{{fixedLiterals.no}}</button>
+		      	</div>
+		    </ion-content>
+		  </ion-modal-view>
+		</script>
+	</ion-content>
+
+	<ion-content class="bg-grey-light changeUserData" ng-show="contentManager.subviewActive==='changeEmail'">
+		<form ng-submit="emailChanger.change()" class="has-header p-top-2">
+			<div class="h-space p-bottom-1">
+				<label>{{fixedLiterals.emailLabel}}</label>
+			</div>
+			<input type="text" ng-model="emailChanger.email"/>
+			<div class="h-space p-top-2 p-bottom-1">
+				<p class="alert-error" ng-show="emailChanger.validationMessage !== ''">
+					<span class="icon ion-sad"></span>
+					{{emailChanger.validationMessage}}
+				</p>
+			</div>
+			<input type="submit" class="button button-block button-green" value="{{fixedLiterals.send}}"/>
+		</form>
+	</ion-content>
+
+	<ion-content class="bg-grey-light changeUserData" ng-show="contentManager.subviewActive==='changePassword'">
+		<form ng-submit="passChanger.change()" class="has-header p-top-2">
+			<div class="h-space p-bottom-1">
+				<label>{{fixedLiterals.changePasswordLabel}}</label>
+			</div>
+			<input type="password" ng-model="passChanger.pass"/>
+			<div class="h-space p-bottom-1 p-top-1">
+				<label>{{fixedLiterals.changePasswordLabelRpt}}</label>
+			</div>
+			<input type="password" ng-model="passChanger.passrpt"/>
+			<div class="h-space p-top-2 p-bottom-1">
+				<p class="alert-error" ng-show="passChanger.validationMessage !== ''">
+					<span class="icon ion-sad"></span>
+					{{passChanger.validationMessage}}
+				</p>
+			</div>
+			<input type="submit" class="button button-block button-green" value="{{fixedLiterals.send}}"/>
+		</form>
+	</ion-content>
+</div>

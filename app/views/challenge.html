@@ -1,0 +1,263 @@
+<div ng-controller='ChallengeCtrl'>
+	<!-- Subview CHALLENGE LIST-->
+	<ion-content class='bg-std' ng-show="contentManager.subviewActive==='challengeList'"> 
+		<div class="has-header wellcome-block p-top-2 p-bottom-2">
+			<div class='h-space'>
+				<h3 class="text-center light">{{fixedLiterals.chListSubtitle}}</h3>
+				<p class="text-center">{{fixedLiterals.chListCheck}}</p>
+			</div>
+		</div>
+
+		<!--Bloque de último reto-->
+		<div class="last-challenge p-top-2">
+			<small class="tit text-center">{{fixedLiterals.chListLastTitle}}</small>
+
+			<div class="h-space">
+				<p ng-if="challengesData.firstChallenge!==null" class="p-top-1 text-center">{{challengesData.firstChallenge.description[0]}}<br/>{{challengesData.firstChallenge.description[1]}}</p>
+				<p ng-if="challengesData.firstChallenge === null" class="p-top-1 text-center">{{fixedLiterals.challengesEmpty}}</p>
+			</div>
+
+			<div class="text-center p-top-1" ng-if="challengesData.firstChallenge!==null">
+				<span class="ohitu-checkbox big" ng:class="{true:'success', false:''}[challengesData.firstChallenge.dateManager.todayDone() || challengesData.firstChallenge.dateManager.weeksAttempsLeft === 0]" ng-click="done(challengesData.firstChallenge)">
+					<span class="icon ohituicon-check"></span>
+					<img class="ohituicon-unchecked" src="images/icon_tips.png" alt="Icon Check"/>
+				</span>
+				<p class="p-top-1 success" ng-show="challengesData.firstChallenge.dateManager.weeksAttempsLeft === 0">{{fixedLiterals.weekSuccess}}</p>
+			</div>
+
+			<!-- Bloque de progreso del último reto-->
+			<div class="last-challenge-progress p-bottom-2 p-top-2 m-top-2" ng-if="challengesData.firstChallenge!==null">
+
+				<div class="h-space">
+					<p>{{fixedLiterals.progressPre}}{{challengesData.firstChallenge.dateManager.howMuchDoneExact}} {{fixedLiterals.progressPost}} </p>
+
+					<div ng-hide="challengesData.firstChallenge.dateManager.howMuchDoneExact > 0 && challengesData.firstChallenge.dateManager.howMuchDoneExact < 3" class="progbar" data-value="{{challengesData.firstChallenge.dateManager.howMuchDone}}">
+						<span></span>
+					</div>
+
+					<div ng-show="challengesData.firstChallenge.dateManager.howMuchDoneExact > 0 && challengesData.firstChallenge.dateManager.howMuchDoneExact < 3" class="progbar" data-value="3">
+						<span></span>
+					</div>
+					<!-- Progress message-->
+					<p class="p-top-1 power-green" ng-show="challengesData.firstChallenge.dateManager.howMuchDoneExact == 0">{{literals.progress_0.literal}}</p>
+
+					<p class="p-top-1 power-green" ng-show="challengesData.firstChallenge.dateManager.howMuchDoneExact > 0 && challengesData.firstChallenge.dateManager.howMuchDoneExact < 20">{{literals.progress_0_20.literal}}</p>
+
+					<p class="p-top-1 power-green" ng-show="challengesData.firstChallenge.dateManager.howMuchDoneExact >= 20 && challengesData.firstChallenge.dateManager.howMuchDoneExact < 40">{{literals.progress_20_40.literal}}</p>
+
+					<p class="p-top-1 power-green" ng-show="challengesData.firstChallenge.dateManager.howMuchDoneExact >= 40 && challengesData.firstChallenge.dateManager.howMuchDoneExact < 60">{{literals.progress_40_60.literal}}</p>
+
+					<p class="p-top-1 power-green" ng-show="challengesData.firstChallenge.dateManager.howMuchDoneExact >= 60 && challengesData.firstChallenge.dateManager.howMuchDoneExact < 80">{{literals.progress_60_80.literal}}</p>
+
+					<p class="p-top-1 power-green" ng-show="challengesData.firstChallenge.dateManager.howMuchDoneExact >= 80 && challengesData.firstChallenge.dateManager.howMuchDoneExact < 100">{{literals.progress_80_100.literal}}</p>
+
+					<p class="p-top-1 power-green" ng-show="challengesData.firstChallenge.dateManager.howMuchDone == 100">{{literals.progress_100.literal}}</p>
+				</div>
+
+			</div>
+
+			<div ng-click="changeToInner(appMap.challengeInner,challengesData.firstChallenge)" class="button button-block button-more" ng-if="challengesData.firstChallenge!==null">
+				<span>+</span>
+			</div>
+		</div>
+
+		<!-- Bloque de otros retos activos-->
+		<div class="other-challenges">
+			<small class="text-center tit p-top-2" ng:class="{true:'p-bottom-2', false:''}[challengesData.activeChallenges.length > 0]">{{fixedLiterals.otherChallengesTitle}}</small>
+
+			<div class="list full" ng-if="challengesData.activeChallenges.length > 0">
+				<div class="item" ng-repeat="challenge in challengesData.activeChallenges">
+					<button ng-click="changeToInner(appMap.challengeInner,challenge)" class="button button-more"><span>+</span></button>
+					<p>{{challenge.promise}}</p>
+					<div class="ohitu-checkbox" ng:class="{true:'success', false:''}[challenge.dateManager.todayDone() || challenge.dateManager.weeksAttempsLeft === 0]" ng-click="done(challenge)" >
+						<span class="icon ohituicon-check"></span>
+						<img class="ohituicon-unchecked" src="images/icon_tips.png" alt="Icon Check"/>
+					</div>
+				</div>
+			</div>
+
+			<p ng-if="challengesData.activeChallenges.length === 0" class="p-top-1 text-center">{{fixedLiterals.otherChallengesEmpty}}</p>
+		</div>
+
+		<!-- Bloque de retos finalizados-->
+		<div class="finished-challenges">
+			<small class="text-center tit p-top-2" ng:class="{true:'p-bottom-2', false:''}[challengesData.inactiveChallenges.length > 0]">{{fixedLiterals.endedChallengesTitle}}</small>
+
+			<div class="list full" ng-if="challengesData.inactiveChallenges.length > 0">
+				<div class="item" ng-repeat="challenge in challengesData.inactiveChallenges">
+					<button ng-click="changeToInner(appMap.challengeInnerEnd,challenge)" class="button button-more"><span>+</span></button>
+					<p>{{challenge.promise}}</p>
+					<button ng-click="renew(challenge,false)" class="button button-reset">{{fixedLiterals.renewChallenge}}</button>
+				</div>
+			</div>
+
+			<p ng-if="challengesData.inactiveChallenges.length===0" class="p-top-1 p-bottom-2 text-center">{{fixedLiterals.finishedChallengesEmpty}}</p>
+		</div>
+	</ion-content>
+
+
+	<!-- Subview CHALLENGE INNER-->
+	<ion-content class='bg-std' ng-show="contentManager.subviewActive==='challengeInner'">
+
+
+		<div class="inner-challenge p-top-2 has-header">
+			<div class="h-space">
+
+				<div class="h-space">
+					<p class="p-top-2 text-center">{{innerChallenge.description[0]}}<br/>{{innerChallenge.description[1]}}</p>
+				</div>
+
+				<div class="text-center p-top-1">
+					<span class="ohitu-checkbox big" ng:class="{true:'success', false:''}[innerChallenge.dateManager.todayDone() || innerChallenge.dateManager.weeksAttempsLeft === 0]" ng-click="done(innerChallenge)">
+						<span class="icon ohituicon-check"></span>
+						<img class="ohituicon-unchecked" src="images/icon_tips.png" alt="Icon Check"/>
+					</span>
+					<p class="p-top-1 success" ng-show="innerChallenge.dateManager.weeksAttempsLeft === 0">{{fixedLiterals.weekSuccess}}</p>
+				</div>
+			</div>
+
+			<div class="inner-challenge-progress p-bottom-1 p-top-2 m-top-2" ng-if="challengesData.firstChallenge!==null">
+				<div class="h-space">
+					<p>{{fixedLiterals.progressPre}}{{innerChallenge.dateManager.howMuchDoneExact}}{{fixedLiterals.progressPost}}</p>
+
+					<div ng-hide="innerChallenge.dateManager.howMuchDoneExact > 0 && innerChallenge.dateManager.howMuchDoneExact < 3" class="progbar" data-value="{{innerChallenge.dateManager.howMuchDone}}">
+						<span></span>
+					</div>
+
+					<div ng-show="innerChallenge.dateManager.howMuchDoneExact > 0 && innerChallenge.dateManager.howMuchDoneExact < 3" class="progbar" data-value="3">
+						<span></span>
+					</div>
+
+					<p class="p-top-1 power-green" ng-show="innerChallenge.dateManager.howMuchDoneExact == 0">{{literals.progress_0.literal}}</p>
+
+					<p class="p-top-1 power-green" ng-show="innerChallenge.dateManager.howMuchDoneExact > 0 && innerChallenge.dateManager.howMuchDoneExact < 20">{{literals.progress_0_20.literal}}</p>
+
+					<p class="p-top-1 power-green" ng-show="innerChallenge.dateManager.howMuchDoneExact >= 20 && innerChallenge.dateManager.howMuchDoneExact < 40">{{literals.progress_20_40.literal}}</p>
+
+					<p class="p-top-1 power-green" ng-show="innerChallenge.dateManager.howMuchDoneExact >= 40 && innerChallenge.dateManager.howMuchDoneExact < 60">{{literals.progress_40_60.literal}}</p>
+
+					<p class="p-top-1 power-green" ng-show="innerChallenge.dateManager.howMuchDoneExact >= 60 && innerChallenge.dateManager.howMuchDoneExact < 80">{{literals.progress_60_80.literal}}</p>
+
+					<p class="p-top-1 power-green" ng-show="innerChallenge.dateManager.howMuchDoneExact >= 80 && innerChallenge.dateManager.howMuchDoneExact < 100">{{literals.progress_80_100.literal}}</p>
+
+					<p class="p-top-1 power-green" ng-show="innerChallenge.dateManager.howMuchDone == 100">{{literals.progress_100.literal}}</p>
+
+					<p ng-show='innerChallenge.dateManager.startDay == 1'>{{fixedLiterals.startDayLabel}} <span class="power-green">{{fixedLiterals.day1}}</span></p>
+					<p ng-show='innerChallenge.dateManager.startDay == 2'>{{fixedLiterals.startDayLabel}} <span class="power-green">{{fixedLiterals.day2}}</span></p>
+					<p ng-show='innerChallenge.dateManager.startDay == 3'>{{fixedLiterals.startDayLabel}} <span class="power-green">{{fixedLiterals.day3}}</span></p>
+					<p ng-show='innerChallenge.dateManager.startDay == 4'>{{fixedLiterals.startDayLabel}} <span class="power-green">{{fixedLiterals.day4}}</span></p>
+					<p ng-show='innerChallenge.dateManager.startDay == 5'>{{fixedLiterals.startDayLabel}} <span class="power-green">{{fixedLiterals.day5}}</span></p>
+					<p ng-show='innerChallenge.dateManager.startDay == 6'>{{fixedLiterals.startDayLabel}} <span class="power-green">{{fixedLiterals.day6}}</span></p>
+					<p ng-show='innerChallenge.dateManager.startDay == 7'>{{fixedLiterals.startDayLabel}} <span class="power-green">{{fixedLiterals.day7}}</span></p>
+
+					<p>{{fixedLiterals.weeksLeft}} <span class="power-green">{{innerChallenge.dateManager.weeksAttempsLeft}}</span></p>
+					<p>{{fixedLiterals.creationDate}} <span class="power-green">{{innerChallenge.dateManager.startDateString}}</span></p>
+					<p>{{fixedLiterals.finishDate}} <span class="power-green">{{innerChallenge.dateManager.finishDateString}}</span></p>
+					<p>{{fixedLiterals.triesDone}} <span class="power-green">{{innerChallenge.dateManager.currentAttemps}}/{{innerChallenge.dateManager.totalAttemps}}<span></p>
+					
+				</div>
+
+				
+			</div>
+
+			<!--Tip-->
+			<div class="tip m-top-1" ng-show="randomTip.description!==null">
+				<div class="tip-body h-space">
+					<img class="tip-icon" src="images/tip_icon.png" alt="Icono Tip"/>
+					<h2 class="light">{{randomTip.categoryName}}</h2>
+					<p>{{randomTip.description}}</p>
+				</div>
+				<span class="tri-separator-down"></span>
+
+			</div>
+
+
+			<button ng-click="openModal()" class="button button-block button-coral-dark">{{fixedLiterals.deleteChallenge}}</button>
+
+		</div>
+
+	</ion-content>
+
+	<!-- Subview CHALLENGE INNER FINISHED-->
+	<ion-content class='bg-std' ng-show="contentManager.subviewActive==='challengeInnerEnd'">
+
+
+		<div class="inner-end-challenge p-top-2 has-header">
+			<div class="h-space">
+
+				<div class="h-space">
+					<p class="p-top-2 text-center">{{innerChallenge.description[0]}}<br/>{{innerChallenge.description[1]}}</p>
+				</div>
+
+				<div class="text-center p-top-1">
+					<span ng-click="renew(innerChallenge,true)" class="ohitu-repeat-button big" ng-click="">
+						<span class="icon ion-refresh"></span>
+					</span>
+					<p class="p-top-1 success">{{fixedLiterals.renewChallenge}}</p>
+				</div>
+			</div>
+
+			<div class="inner-end-challenge-progress p-bottom-1 p-top-2 m-top-2" ng-if="challengesData.firstChallenge!==null">
+				<div class="h-space">
+					<p>{{fixedLiterals.progressPre}}{{innerChallenge.dateManager.howMuchDoneExact}}{{fixedLiterals.progressPost}}</p>
+
+					<div ng-hide="innerChallenge.dateManager.howMuchDoneExact > 0 && innerChallenge.dateManager.howMuchDoneExact < 3" class="progbar" data-value="{{innerChallenge.dateManager.howMuchDone}}">
+						<span></span>
+					</div>
+
+					<div ng-show="innerChallenge.dateManager.howMuchDoneExact > 0 && innerChallenge.dateManager.howMuchDoneExact < 3" class="progbar" data-value="3">
+						<span></span>
+					</div>
+
+					<small>{{innerChallenge.progressLiteral}}</small>
+
+					<p class="p-top-1">{{fixedLiterals.creationDate}} <span class="power-green">{{innerChallenge.dateManager.startDateString}}</span></p>
+					<p>{{fixedLiterals.finishDate}} <span class="power-green">{{innerChallenge.dateManager.finishDateString}}</span></p>
+					<p>{{fixedLiterals.triesDone}} <span class="power-green">{{innerChallenge.dateManager.currentAttemps}}/{{innerChallenge.dateManager.totalAttemps}}<span></p>
+					
+				</div>
+
+			</div>
+
+			<!--Tip-->
+			<div class="tip m-top-1">
+				<div class="tip-body h-space">
+					<img class="tip-icon" src="images/tip_icon.png" alt="Icono Tip"/>
+					<h2 class="light">{{literals.ended_challenge.literal}}</h2>
+					<div ng-show="innerChallenge.dateManager.howMuchDone >= 0 && innerChallenge.dateManager.howMuchDone <= 50" class="tip-body">
+						<p>{{literals.rec_0_50.literal}}</p>
+					</div>
+					<div ng-show="innerChallenge.dateManager.howMuchDone > 50 && innerChallenge.dateManager.howMuchDone < 80" class="tip-body">
+						<p>{{literals.rec_50_80.literal}}</p>
+					</div>
+					<div ng-show="innerChallenge.dateManager.howMuchDone >= 80 && innerChallenge.dateManager.howMuchDone < 100" class="tip-body">
+						<p>{{literals.rec_80_100.literal}}</p>
+					</div>
+					<div ng-show="innerChallenge.dateManager.howMuchDone === 100" class="tip-body">
+						<p>{{literals.rec_100.literal}}</p>
+					</div>
+				</div>
+				<span class="tri-separator-down"></span>
+			</div>
+
+
+			<button ng-click="openModal()" class="button button-block button-coral-dark">{{literals.delete_button.literal}}</button>
+
+		</div>
+	</ion-content>
+
+	<script id="my-modal.html" type="text/ng-template">
+		<ion-modal-view class="confirm-modal light">
+			<ion-content class="bg-light">
+				<div class="h-space p-top-2">
+					<p class="text-center">{{fixedLiterals.deleteChallengeConfirm}}</p>
+				</div>
+				<div class="h-space actions text-center p-bottom-2 p-top-2">
+			  		<button ng-click="deleteChallenge(innerChallenge.id)" class="button button-ohitu-dark">{{fixedLiterals.yes}}</button>
+			  		<button ng-click="closeModal()" class="button button-ohitu-dark">{{fixedLiterals.no}}
+			  		</button>
+			  	</div>
+			</ion-content>
+		</ion-modal-view>
+	</script>
+</div>

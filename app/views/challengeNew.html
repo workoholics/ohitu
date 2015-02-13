@@ -1,0 +1,80 @@
+
+<div ng-controller="ChallengeNewCtrl">
+	<ion-content class="new-challenge bg-light-grey" ng-show="contentManager.subviewActive==='challengeNewTarget'">
+		<div class="list has-header">
+			<div class="item item-divider">
+				<h2>{{fixedLiterals.challengeTargetSubtitle}}</h2>
+			</div>
+			<div class="item category" ng-repeat-start="recomendation in targetRecomendations">
+				<p>{{recomendation.category.name}}</p>
+			</div>
+			<div ng-click="checkTargetItem('{{item.id}}',{{recomendation.category}})" class="item" ng-repeat-end ng-repeat="item in recomendation.items">
+				<p>{{item.description}}</p>
+				<span ng:class="{true:'success', false:''}[item.checked]" class="ohitu-checkbox">
+					<span class="icon ohituicon-check"></span>
+				</span>
+			</div>
+			<div class="item item-divider">
+				<h2>{{fixedLiterals.chooseOther}}</h2>
+			</div>
+			<div class="item item-input">
+				<input type="text" placeholder="{{fixedLiterals.writeHere}}" ng-model="otherChallenge.text" ng-keyup="selectCustomTarget()">
+			</div>
+		</div>
+		<button ng-disabled="newChallenge.target.name==='' && otherChallenge.text===''" ng-click="change(appMap.challengeNewPer)" class="button button-block button-balanced full">{{fixedLiterals.next}}</button>
+	</ion-content>
+
+
+	<ion-content class="new-challenge bg-light-grey" ng-show="contentManager.subviewActive==='challengeNewPer'">
+		<div class="list has-header">
+			<div class="item item-divider">
+				<h2>{{fixedLiterals.challengePerSubtitle}}</h2>
+			</div>
+			<div ng-click="checkCurrencyItem('{{currency.id}}')" class="item" ng-repeat-end ng-repeat="currency in currencyRecomendations">
+				<p>{{currency.description}}</p>
+				<span ng:class="{true:'success', false:''}[currency.checked]" class="ohitu-checkbox">
+					<span class="icon ohituicon-check"></span>
+				</span>
+			</div>
+		</div>
+		<button ng-disabled="newChallenge.currency.name===''" ng-click="change(appMap.challengeNewLength)" class="button button-block button-balanced full">{{fixedLiterals.next}}</button>
+	</ion-content>
+
+	<ion-content class="new-challenge bg-light-grey" ng-show="contentManager.subviewActive==='challengeNewLength'">
+		<div class="list has-header">
+			<div class="item item-divider">
+				<h2>{{fixedLiterals.challengeLengthSubtitle}}</h2>
+			</div>
+			<div class="item" ng-hide="twentyOneEnabled===false && timeLength.name==='21'" ng-click="checkLengthItem('{{timeLength.id}}')" ng-repeat-end ng-repeat="timeLength in lengthRecomendations">
+				<p>{{timeLength.description}}</p>
+				<span ng:class="{true:'success', false:''}[timeLength.checked]" class="ohitu-checkbox">
+					<span class="icon ohituicon-check"></span>
+				</span>
+			</div>
+		</div>
+		<button ng-disabled="newChallenge.timeLength.name===''" ng-click="change(appMap.challengeNewPromise)" class="button button-block button-balanced full">{{fixedLiterals.next}}</button>
+	</ion-content>
+
+	<ion-content class="new-challenge bg-light-grey" ng-show="contentManager.subviewActive==='challengeNewPromise'">
+		<div class="list has-header">
+			<div class="item item-divider">
+				<h2>{{fixedLiterals.challengePromiseSubtitle}}</h2>
+			</div>
+			<div class="item" ng-click="checkPromiseItem('{{promise.id}}')" ng-repeat-end ng-repeat="promise in promiseRecomendations">
+				<p>{{promise.description}}</p>
+				<span ng:class="{true:'success', false:''}[promise.checked]" class="ohitu-checkbox">
+					<span class="icon ohituicon-check"></span>
+				</span>
+			</div>
+			<div class="item item-divider">
+				<h2>{{fixedLiterals.chooseOther}}</h2>
+			</div>
+			<div class="item item-input">
+				<input type="text" placeholder="{{fixedLiterals.writeHere}}" ng-model="otherPromise.text" ng-keyup="selectCustomPromise()">
+			</div>
+		</div>
+		<button ng-disabled="newChallenge.promise.name==='' && otherPromise.text===''" class="button button-block button-balanced full" ng-click='newChallenge.create()'>{{fixedLiterals.save}}</button>
+	</ion-content>
+
+
+</div>

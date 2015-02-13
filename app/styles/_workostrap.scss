@@ -1,0 +1,274 @@
+/**********************************************
+************* VARIABLES GLOBALES **************
+***********************************************/
+
+$gutter : 10px;
+
+//Media queries width
+$mq-width-md : 1200px;
+$mq-width-sm : 992px;
+$mq-width-xs : 768px;
+
+
+//Browser prefixes map
+$browsers : (moz,ms,o,webkit);
+
+//Colors
+$light : #fff;
+$dark : #000;
+
+/**********************************************
+****************** MIXINS *********************
+***********************************************/
+
+/* Browser compatibility mixin */
+
+@mixin prefixer($property,$value)
+{
+	#{$property} : $value;
+	@each $browser in $browsers
+	{
+		-#{$browser}-#{$property} : $value;
+	}
+}
+
+/* -- End -- Browser compatibility mixin */
+
+/* Translation in axis Y */
+
+@mixin translateY($value)
+{
+	@include prefixer(transform,translateY( $value ));
+}
+
+/* -- End -- Translation in axis Y */
+
+/* Transition in axis X */
+
+@mixin translateX($value)
+{
+	@include prefixer(transform,translateX( $value ));
+}
+
+/* -- End -- Transition in axis X */
+
+/* Vertical align */
+
+@mixin valign()
+{
+	top: 50%;
+	@include translateY(-50%);
+}
+
+
+/* -- End -- Vertical align */
+
+/* Include placeholder styles*/
+
+@mixin placeholder()
+{
+
+  &::-webkit-input-placeholder
+  {
+    @content;
+  }
+  &::-moz-placeholder
+  {
+    @content;
+  }
+  &:-moz-placehoder
+  {
+    @content;
+  }
+  &:-ms-input-placeholder
+  {
+    @content;
+  }
+
+}
+
+
+/* -- end -- Include placeholder styles*/
+
+
+
+/* Media query mixin*/
+
+@mixin media_query_height($max-height)
+{
+	@media screen and (max-height: $max-height){
+		@content;
+	}
+}
+
+@mixin media_query_min_width($min-width)
+{
+	@media screen and (min-width: $min-width){
+		@content;
+	}
+}
+
+/* -- end -- Media query mixin*/
+
+
+/**********************************************
+****************** STYLES *********************
+***********************************************/
+
+/* Margin and padding Helper Classes */
+
+
+	$i : 9; //Quantity of values you need
+	@while $i >= 0 
+	{
+	  @each $side in top, bottom 
+	  {
+	    @each $property in padding, margin
+	    {
+	      @if($property == padding)
+	      {
+	        .p-#{$side}-#{$i}
+	        {
+	        	#{$property}-#{$side} : $gutter * $i;
+	        }
+	      }
+	      @if($property == margin)
+	      {
+	        .m-#{$side}-#{$i}
+	        {
+	          #{$property}-#{$side} : $gutter * $i;
+	        }
+	      }
+	    } 
+	  }
+	  $i : $i - 1;
+	}
+
+/* Padding of $gutter in both sides */
+	.h-space
+	{
+		padding-left: $gutter;
+		padding-right: $gutter;
+	}
+/* -- End -- Padding of $gutter in both sides */
+
+
+/* -- End -- Margin and padding Helper Classes*/
+
+/* Appearance Helpers*/
+
+.noborder
+{
+	border:none !important;
+}
+
+.fleft
+{
+	float: left;
+}
+
+.fright
+{
+	float: right;
+}
+
+.light-grey
+{
+	color: darken(#fff,25%);
+}
+
+.grey
+{
+	color: darken(#fff,50%);
+}
+
+.dark-grey
+{
+	color: lighten(#000,25%);
+}
+
+.light
+{
+	color: $light;
+}
+
+.dark
+{
+	color: $dark;
+}
+
+/* -- End -- Appearance Helpers */
+
+
+
+/* Vertical alignment */
+
+	.vertical-align
+	{
+		position: relative;
+		top: 50%;
+		@include translateY(-50%);	
+	}
+
+/* -- End -- Vertical aligment*/
+
+/* Horizontal  aligment */
+
+	.horizontal-align
+	{
+		position: relative;
+		left: 50%; 
+		@include translateX(-50%);
+	}
+
+/* -- End -- Horizontal alignment*/
+
+/* Displaying inline-block */
+
+	.dis-in-block
+	{
+		display: inline-block;
+	}
+
+/* -- End -- Displaying inline-block */
+
+
+/**********************************************
+***************** CSS Components **************
+***********************************************/
+
+/* Worko progress bar */
+
+$i : 100;
+
+@while $i > -1
+{
+  .progbar[data-value = "#{$i}"]
+  {
+    span
+    {
+      width : percentage($i / 100);
+    }
+  }
+  $i : $i - 1;
+}
+
+.progbar
+{
+  border : 1px solid #ddd;
+  height: $gutter * 3;
+  span
+  {
+    position: relative;
+    display: block;
+    height: 100%;
+    background-color: $dark;
+  }
+
+}
+
+/* -- End -- Worko progress bar */
+
+
+
+
